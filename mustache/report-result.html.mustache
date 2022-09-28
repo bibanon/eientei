@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	{{#board}}
+		data-board="{{board}}"
+	{{/board}}
+>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="{{conf.DefaultTheme.Url}}"/>
+		<link rel="icon" href="{{conf.FaviconUrl}}"/>
+		<title>Eientei - /{{board}}/ {{postNumber}} Post Report</title>
+	</head>
+	<body>
+		<h1>{{message}}</h1>
+	</body>
+</html>

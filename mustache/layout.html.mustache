@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	{{#board}}
+		data-board="{{board}}"
+	{{/board}}
+	{{#conf.OekakiUrl}}
+		data-oekaki-url="{{conf.OekakiUrl}}"
+	{{/conf.OekakiUrl}}
+	{{#enableLatex}}
+		data-enable-latex="true"
+	{{/enableLatex}}
+	{{#enableTegaki}}
+		data-enable-tegaki="true"
+	{{/enableTegaki}}
+>
+	<head>
+		<meta charset="UTF-8">
+		{{#description}}
+			<meta name="description" content="Eientei 4chan Archive {{{description}}}">
+		{{/description}}
+		{{^description}}
+			{{#board}}
+				<meta name="description" content="Eientei 4chan Archive /{{board}}/">
+			{{/board}}
+			{{^board}}
+				<meta name="description" content="Eientei 4chan Archive">
+			{{/board}}
+		{{/description}}
+		{{#noIndex}}
+			<meta name="robots" content="noindex">
+		{{/noIndex}}
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" id="main-css-link" href="{{conf.DefaultTheme.Url}}"/>
+		<link rel="icon" href="{{conf.FaviconUrl}}"/>
+		<title>Eientei {{#board}}- /{{board}}/{{/board}} {{#title}}{{{title}}}{{/title}}</title>
+		{{#enableLatex}}
+			<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+		{{/enableLatex}}
+		{{#enableTegaki}}
+			<link rel="stylesheet" href="{{conf.TegakiCssUrl}}">
+			<script async src="{{conf.TegakiJsUrl}}"></script>
+		{{/enableTegaki}}
+		{{#enableCountryFlags}}
+			<link rel="stylesheet" href="/static/flags.css">
+			<script async src="{{conf.FlagsJsUrl}}"></script>
+		{{/enableCountryFlags}}
+		{{#enablePolFlags}}
+			<link rel="stylesheet" href="/static/pol-flags.css">
+			<script async src="{{conf.PolFlagsJsUrl}}"></script>
+		{{/enablePolFlags}}
+		{{#enableMlpFlags}}
+			<link rel="stylesheet" href="/static/mlp-flags.css">
+			<script async src="{{conf.MlpFlagsJsUrl}}"></script>
+		{{/enableMlpFlags}}
+		<script src="{{conf.JsUrl}}"></script>
+	</head>
+	<body>
+		<header id="header">
+			<div id="board-list">
+				Boards:
+				{{#boards}} <a href="/{{Name}}">/{{Name}}/</a> {{/boards}}
+			</div>
+			<div id="main-nav">
+				<div id="nav-links">
+					<a href="/">Eientei</a>
+					<a href="/contact">Contact</a>
+				</div>
+				{{#board}}
+					<form action="/{{board}}/search" id="search-form">
+						<div>
+							<input
+								type="text"
+								name="search"
+								id="search-input"
+								placeholder="Search"
+								{{#search}}
+									value="{{search}}"
+								{{/search}}
+							/>
+							<button>🔍</button>
+						</div>
+					</form>
+				{{/board}}
+			</div>
+		</header>
+		<div id="content">
+			{{{content}}}
+		</div>
+		<footer id="footer">
+			<select id="theme-select">
+				{{#conf.Themes}}
+					<option value={{Url}}>{{Name}}</option>
+				{{/conf.Themes}}
+			</select>
+		</footer>
+	</body>
+</html>

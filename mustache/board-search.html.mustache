@@ -1,0 +1,44 @@
+<h1>
+	{{#countMoreThanOne}}
+		{{count}} results found
+	{{/countMoreThanOne}}
+	{{^countMoreThanOne}}
+		A single result found
+	{{/countMoreThanOne}}
+</h1>
+
+{{#posts}}
+	{{>post-ambiguous}}
+{{/posts}}
+
+<form action="/{{board}}/search" method="get">
+	<input
+		type="hidden"
+		name="search"
+		value="{{search}}"
+	/>
+	<div class="pagination">
+		{{#offset}}
+			<button name="offset" value="{{previousPageOffset}}"
+			>
+				Previous page
+			</button>
+		{{/offset}}
+		{{^offset}}
+			<button disabled>
+				Previous page
+			</button>
+		{{/offset}}
+
+		{{#nextPageOffset}}
+			<button name="offset" value="{{nextPageOffset}}">
+				Next page
+			</button>
+		{{/nextPageOffset}}
+		{{^nextPageOffset}}
+			<button disabled>
+				Next page
+			</button>
+		{{/nextPageOffset}}
+	</div>
+</form>

@@ -1,0 +1,102 @@
+<div 
+	id="p{{PostNumber}}"
+	{{#OekakiAvailable}}
+		data-oekaki-internal-hash="{{DerefOekakiInternalHash}}"
+	{{/OekakiAvailable}}
+	class="reisen-post reisen-post-op"
+>
+	{{^MediaTimestampIsNil}}
+		<div class="post-image-div">
+			{{#MediaAvailable}}
+				<a 
+					href="{{conf.ImagesUrl}}/{{DerefMediaInternalHash}}"
+					target="_blank"
+					rel="nofollow"
+				>
+					<img
+						src="{{conf.ThumbnailsUrl}}/{{DerefThumbnailInternalHash}}"
+						alt="Image not available"
+						style="height: {{DerefThumbnailHeight}}px; width: {{DerefThumbnailWidth}}px;"
+						class="post-image"
+						loading="lazy"
+					/>
+				</a>
+			{{/MediaAvailable}}
+			{{^MediaAvailable}}
+				{{#ThumbnailAvailable}}
+					<img
+						src="{{conf.ThumbnailsUrl}}/{{DerefThumbnailInternalHash}}"
+						alt="Image not available"
+						class="post-image"
+						style="height: {{DerefThumbnailHeight}}px; width: {{DerefThumbnailWidth}}px;"
+						title="Full image not available"
+						loading="lazy"
+					/>
+				{{/ThumbnailAvailable}}
+			{{/MediaAvailable}}
+			{{#ThumbnailAvailable}}
+				<div class="view-same-div">
+					<a href="/{{board}}/view-same/{{DerefMedia4chanHash}}">
+						View Same
+					</a>
+					<a href="https://yandex.com/images/search?rpt=imageview&url={{conf.ThumbnailsUrl}}/{{DerefThumbnailInternalHash}}">
+						Yandex
+					</a>
+					<a href="https://imgops.com/{{conf.ThumbnailsUrl}}/{{DerefThumbnailInternalHash}}">
+						ImgOps
+					</a>
+					<a href="https://iqdb.org?url={{conf.ThumbnailsUrl}}/{{DerefThumbnailInternalHash}}">
+						iqdb
+					</a>
+					<a href="https://saucenao.com/search.php?url={{conf.ThumbnailsUrl}}/{{DerefThumbnailInternalHash}}">
+						SauceNAO
+					</a>
+				</div>
+			{{/ThumbnailAvailable}}
+			<p>
+				<small>{{DerefMediaWidth}}x{{DerefMediaHeight}}</small>
+			</p>
+			<p>
+				<small>{{DerefMediaFileNameShort}}.{{DerefMediaExtension}}</small>
+			</p>
+		</div>
+	{{/MediaTimestampIsNil}}
+	<div>
+		<h2 class="thread-subject">
+			{{#Deleted}}
+				<span title="Deleted">🗑️</span>
+			{{/Deleted}}
+			{{#DerefSticky}}
+				📌
+			{{/DerefSticky}}
+			🧵
+			{{#SubjectIsNil}} Untitled Thread {{/SubjectIsNil}}
+			{{^SubjectIsNil}} {{{DerefSubject}}} {{/SubjectIsNil}}
+		</h2>
+		<p class="post-name-p">
+			<strong class="post-name">{{FormatName}}</strong>
+			{{#HasTripcode}}
+				<span class="post-tripcode">{{DerefTripcode}}</span>
+			{{/HasTripcode}}
+			{{#HasID}}
+				<span class="poster-id" style="{{IDStyle}}">ID: {{DerefPosterID}}</span>
+			{{/HasID}}
+			<span class="post-date" data-json-time="{{JsonTime}}">
+				at {{FormatTime}}
+			</span>
+			<a href="#p{{PostNumber}}">
+				No. {{PostNumber}}
+			</a>
+			{{#HasCountry}}
+				<i data-flag="{{DerefCountry}}" class="flag flag-{{DerefCountry}}"></i>
+			{{/HasCountry}}
+			{{#HasFlag}}
+				<i data-board-flag="{{DerefFlag}}" class="board-flag board-flag-{{DerefFlag}}"></i>
+			{{/HasFlag}}
+		</p>
+		<div class="backlinks" id="quoteLinks{{PostNumber}}"></div>
+		{{^CommentIsNil}}
+			<p class="comment">{{{DerefComment}}}</p>
+		{{/CommentIsNil}}
+	</div>
+</div>

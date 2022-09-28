@@ -1,0 +1,111 @@
+.board-flag {
+	display: inline-block;
+	width: 16px;
+	height: 11px;
+	background: url(/static/pol-flags.png) no-repeat;
+}
+
+/*
+ * Board flags
+ */
+
+.board-flag.board-flag-ac {
+	background-position: -16px 0
+}
+
+.board-flag.board-flag-an {
+	background-position: -32px 0
+}
+
+.board-flag.board-flag-bl {
+	background-position: -48px 0
+}
+
+.board-flag.board-flag-cf {
+	background-position: -64px 0
+}
+
+.board-flag.board-flag-cm {
+	background-position: -80px 0
+}
+
+.board-flag.board-flag-dm {
+	background-position: -96px 0
+}
+
+.board-flag.board-flag-eu {
+	background-position: -112px 0
+}
+
+.board-flag.board-flag-fc {
+	background-position: -128px 0
+}
+
+.board-flag.board-flag-gn {
+	background-position: -144px 0
+}
+
+.board-flag.board-flag-gy {
+	background-position: -160px 0
+}
+
+.board-flag.board-flag-jh {
+	background-position: -176px 0
+}
+
+.board-flag.board-flag-kn {
+	background-position: -192px 0
+}
+
+.board-flag.board-flag-mf {
+	background-position: -208px 0
+}
+
+.board-flag.board-flag-nb {
+	background-position: -224px 0
+}
+
+.board-flag.board-flag-nz {
+	background-position: -240px 0
+}
+
+.board-flag.board-flag-pc {
+	background-position: 0 -12px
+}
+
+.board-flag.board-flag-pr {
+	background-position: -16px -12px
+}
+
+.board-flag.board-flag-re {
+	background-position: -32px -12px
+}
+
+.board-flag.board-flag-tm {
+	background-position: -48px -12px
+}
+
+.board-flag.board-flag-tr {
+	background-position: -64px -12px
+}
+
+.board-flag.board-flag-un {
+	background-position: -80px -12px
+}
+
+.board-flag.board-flag-wp {
+	background-position: -96px -12px
+}
+
+.board-flag.board-flag-ct {
+	background-position: -112px -12px
+}
+
+.board-flag.board-flag-mz {
+	background-position: -128px -12px
+}
+
+.board-flag.board-flag-nt {
+	background-position: -144px -12px
+}
+

@@ -1,0 +1,128 @@
+<div>
+	<h1>
+		Search Reference
+	</h1>
+	<p>
+		Just inserting a post number and pressing enter redirects you to it.
+	</p>
+	<p>
+		Full search is currently implemented using <a href="https://lnx.rs">Lnx</a>
+		and makes straightforward use of Tantivy's query language.
+	</p>
+	<p>
+		Essentially 'based redpilled' is interpreted as 'return posts with either
+		based or redpilled in the subject, comment or file name'.
+	</p>
+	<p>
+		To search for posts containing both based and redpilled, use 'based AND redpilled'.
+	</p>
+	<p>
+		To search for posts containing the substring "based and redpilled", use 
+		'"based and redpilled"' (not case sensitive).
+	</p>
+	<p>
+		To specify the fields to be matched, use 'comment:based'. Boolean fields
+		are turned into 0 and 1.
+	</p>
+	<table>
+		<thead>
+			<tr>
+				<th>Field name</th>
+				<th>Type</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>subject</td>
+				<td>Text</td>
+				<td>Thread subject (only matches the OP)</td>
+			</tr>
+			<tr>
+				<td>comment</td>
+				<td>Text</td>
+				<td>Post body</td>
+			</tr>
+			<tr>
+				<td>op</td>
+				<td>Boolean</td>
+				<td>Whether a post is an OP or not</td>
+			</tr>
+			<tr>
+				<td>deleted</td>
+				<td>Boolean</td>
+				<td>Whether a post has been deleted or not</td>
+			</tr>
+			<tr>
+				<td>name</td>
+				<td>Text</td>
+				<td>Name field ('Anonymous' won't match anything)</td>
+			</tr>
+			<tr>
+				<td>tripcode</td>
+				<td>Text</td>
+				<td>Tripcode (only exact matching)</td>
+			</tr>
+			<tr>
+				<td>capcode</td>
+				<td>Text</td>
+				<td>Capcode (only exact matching)</td>
+			</tr>
+			<tr>
+				<td>country</td>
+				<td>Text</td>
+				<td>Poster country (only exact matching)</td>
+			</tr>
+			<tr>
+				<td>flag</td>
+				<td>Text</td>
+				<td>Poster flag (only exact matching)</td>
+			</tr>
+			<tr>
+				<td>email</td>
+				<td>Text</td>
+				<td>Poster email (only exact matching)</td>
+			</tr>
+			<tr>
+				<td>has_media</td>
+				<td>Boolean</td>
+				<td>Whether a post has media</td>
+			</tr>
+			<tr>
+				<td>media_deleted</td>
+				<td>Boolean</td>
+				<td>Whether a post's media was deleted</td>
+			</tr>
+			<tr>
+				<td>media_4chan_hash</td>
+				<td>Text</td>
+				<td>Image MD5 hash in url encoded base 64 (only exact matching)</td>
+			</tr>
+			<tr>
+				<td>media_extension</td>
+				<td>Text</td>
+				<td>Media extension (without .) (only exact matching)</td>
+			</tr>
+			<tr>
+				<td>media_file_name</td>
+				<td>Text</td>
+				<td>Media file name</td>
+			</tr>
+			<tr>
+				<td>spoiler</td>
+				<td>Boolean</td>
+				<td>Whether a post's media was spoilered</td>
+			</tr>
+			<tr>
+				<td>sticky</td>
+				<td>Boolean</td>
+				<td>Whether a thread was stickied (just the OP)</td>
+			</tr>
+			<tr>
+				<td>since4pass</td>
+				<td>Integer</td>
+				<td>Year a poster acquired a 4chan pass</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

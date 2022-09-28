@@ -1,0 +1,394 @@
+/*
+ * CSS Variables
+ */
+
+:root {
+	--link-color: #86efac;
+	--link-hover-color: #4ade80;
+	--muted-link-color: #bbf7d0;
+	--greentext-color: #4ade80;
+	--primary-color: #22c55e;
+	--primary-text-color: #e2e8f0;
+	--post-bg-color: #374151;
+	--main-bg-color: #1F2937;
+	--nav-bg-color: #15803d;
+	--deadlink-color: red;
+	--button-text-color: #1f2937;
+}
+
+/*
+ * Global CSS
+ */
+
+*, ::before, ::after {
+	box-sizing: border-box;
+}
+
+html {
+	line-height: 1.5rem;
+	tab-size: 4;
+	font-family: Graphik, sans-serif;
+	color: var(--primary-text-color);
+	background-color: var(--main-bg-color);
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	line-height: inherit;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+a {
+	text-decoration: initial;
+	color: var(--link-color);
+}
+
+a:hover {
+	color: var(--link-hover-color);
+	cursor: pointer;
+}
+
+a.button, button {
+	background-color: var(--link-color);
+	color: var(--button-text-color);
+	padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+	margin: 0rem;
+	border-radius: 0.25rem;
+}
+
+button {
+	font-size: 100%;
+	cursor: pointer;
+	border: 0px;
+}
+
+button:hover, a.button:hover {
+	background-color: var(--link-hover-color);
+}
+
+button[disabled] {
+	background-color: var(--muted-link-color);
+	cursor: default;
+}
+
+hr {
+	border-color: var(--link-color);
+	background-color: var(--link-color);
+	border-style: solid;
+	border-top-width: 0.1rem;
+	height: 0;
+	border-radius: 0.25rem;
+	margin-bottom: 1rem;
+}
+
+code, kbd, samp, pre {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+	font-size: 1em;
+}
+
+table {
+	text-indent: 0;
+	border-color: inherit;
+	border-collapse: collapse;
+	table-layout: auto;
+	width: 100%;
+}
+
+img, svg, video, canvas, audio, iframe, embed, object {
+	display: block;
+	vertical-align: middle;
+}
+
+img, video {
+	max-width: 100%;
+	height: auto;
+}
+
+h1, h2 {
+	margin: 0.75rem 0rem 0.75rem 0rem;
+}
+
+select {
+	background-color: var(--primary-text-color);
+	padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+	margin: 0rem;
+	border-radius: 0.25rem;
+	font-size: 100%;
+	border: 0px;
+}
+
+/*
+ * IDs
+ */
+
+#header {
+	background-color: var(--nav-bg-color);
+	padding: 1rem;
+	width: 100%;
+}
+
+#footer {
+	display: flex;
+	flex-direction: row-reverse;
+	background-color: var(--nav-bg-color);
+	padding: 1rem;
+	width: 100%;
+}
+
+
+#board-list {
+	color: var(--link-color);
+	display: none;
+	margin-bottom: 0.5rem;
+}
+
+#main-nav {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+#nav-links {
+	display: flex;
+	flex-direction: row;
+	gap: 0.75rem;
+}
+
+#nav-links a {
+	color: var(--primary-text-color);
+	font-size: 1.5rem;
+	font-weight: 700;
+	align-self: flex-end;
+	padding: 0rem;
+	margin: 0rem;
+}
+
+#nav-links a:first-child {
+	font-size: 1.875rem;
+}
+
+#search-form>div {
+	display: flex;
+	gap: 0.5rem;
+	align-self: flex-end;
+	width: 100%;
+}
+
+#search-input {
+	padding: 0.25rem 0.75rem 0.25rem 0.75rem;
+	border-radius: 0.25rem;
+	font-size: 100%;
+	border: 0rem;
+	width: 100%;
+}
+
+#content {
+	width: 100%;
+	padding: 0.5rem;
+	flex-grow: 1;
+}
+
+#report-form {
+	width: 100%;
+	padding: 1rem;
+}
+
+#report-form>*{
+	display: block;
+	margin-bottom: 1rem;
+	margin-top: 0rem;
+	width: 100%;
+}
+
+#report-form>label {
+	margin-bottom: 0rem;
+}
+
+#report-form>*:last-child {
+	margin-bottom: 0rem;
+}
+
+/*
+ * Classes
+ */
+.reisen-backlink {
+	font-size: 0.75rem;
+	line-height: 1rem;
+}
+
+.pagination {
+	display: flex;
+	justify-content: space-between;
+}
+
+.pagination button {
+	padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+}
+
+.reisen-post {
+	display: flex;
+	flex-direction: row;
+	gap: 1.25rem;
+	margin-bottom: 1rem;
+	flex-direction: column;
+	padding: 0.5rem;
+}
+
+.reisen-post:target, .reisen-post.force-target {
+	border-style: solid;
+	border-color: var(--link-color);
+}
+
+.reisen-post-op:target, .reisen-post-op.force-target {
+	border-style: dashed;
+	border-width: 1px;
+}
+
+.reisen-post-reply {
+	background-color: var(--post-bg-color);
+}
+
+.reisen-post-ambiguous {
+	background-color: var(--post-bg-color);
+}
+
+.post-image {
+	margin: 0rem auto 0.5rem auto;
+}
+
+.post-image-div {
+	flex: none;
+	text-align: center;
+}
+
+.post-image-div p {
+	margin: 0.2rem 0rem 0.2rem 0rem;
+}
+
+.thread-subject {
+	color: var(--primary-color);
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+	margin: 0rem;
+	margin-bottom: 0.25rem;
+}
+
+.post-name-p {
+	margin: 0rem;
+	margin-bottom: 0.25rem;
+}
+
+.post-name {
+	color: var(--primary-color);
+}
+
+.view-same-div {
+	display: flex;
+	justify-content: center;
+	gap: 0.25rem;
+}
+
+.view-same-div a {
+	font-size: 0.75rem;
+	line-height: 1rem;
+}
+
+.backlinks {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem;
+}
+
+.comment {
+	margin: 0.5rem 0rem 0rem 0rem;
+}
+
+.quote {
+	color: var(--greentext-color);
+}
+
+.report-button {
+	color: var(--link-color);
+	cursor: pointer;
+	border-width: 1px;
+	border-style: solid;
+	border-color: var(--link-color);
+	padding: 0.15rem;
+}
+
+.report-button:hover {
+	color: var(--link-hover-color);
+	border-color: var(--link-hover-color);
+}
+
+.poster-id {
+	padding: 0.15rem;
+	border-radius: 0.4rem;
+}
+
+span.deadlink {
+	text-decoration: line-through;
+	color: var(--deadlink-color);
+}
+
+.sjis {
+	font-size: 16px;
+	line-height: 17px;
+	white-space: pre;
+	font-family: ipamonapgothic, mona, ms pgothic, monospace;
+	overflow: auto;
+	display: block;
+	clear: left;
+}
+
+/*
+ * Responsive shit
+ */
+
+@media (min-width: 640px) {
+	#main-nav {
+		flex-direction: row;
+	}
+
+	#search-form {
+		width: auto;
+	}
+
+	#search-input {
+		width: auto;
+	}
+}
+
+@media (min-width: 768px) {
+	#board-list {
+		display: block;
+	}
+
+	#index {
+		padding: 1rem 2rem 1rem 2rem;
+	}
+
+	.reisen-post {
+		flex-direction: row;
+		display: inline-flex;
+		padding: 1rem;
+	}
+
+	.reisen-post-op, .reisen-thread {
+		display: flex;
+	}
+}
+
+@media (min-width: 1024px) {
+	nav {
+		padding: 1rem 2rem 1rem 2rem;
+	}
+
+	#content {
+		padding: 1rem 2rem 1rem 2rem;
+	}
+}

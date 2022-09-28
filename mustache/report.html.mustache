@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	{{#board}}
+		data-board="{{board}}"
+	{{/board}}
+>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="{{conf.DefaultTheme.Url}}"/>
+		<link rel="icon" href="{{conf.FaviconUrl}}"/>
+		<title>Eientei - /{{board}}/ {{postNumber}} Post Report</title>
+	</head>
+	<body>
+		<form method="post" id="report-form" action="/{{board}}/report/{{postNumber}}">
+			<h1>Report post {{postNumber}} in /{{board}}/</h1>
+			<select name="reportType">
+				<option value="illegal_media">Post has illegal media</option>
+				<option value="link_to_illegal_media">Post links to illegal media</option>
+				<option value="dox">Dox</option>
+				<option value="dmca">Copyrighted Content</option>
+				<option value="spam">Spam</option>
+				<option value="gore">Gore</option>
+				<option value="bestiality">Bestiality</option>
+				<option value="lolicon">Sexualized drawings of minors</option>
+				<option value="other">Other</option>
+			</select>
+			<label>Comments (maximum 500 characters)</label>
+			<textarea name="comment" maxlength="500"></textarea>
+			<button type="submit">Submit report</button>
+		</form>
+	</body>
+</html>

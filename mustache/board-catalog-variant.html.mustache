@@ -1,0 +1,33 @@
+{{#threads}}
+	{{>thread}}
+	<hr/>
+{{/threads}}
+<div class="pagination">
+	{{#rkeyset}}
+		<a
+			class="button"
+			href="/{{board}}?rkeyset={{rkeyset}}"
+		>
+			Previous page
+		</a>
+	{{/rkeyset}}
+	{{^rkeyset}}
+		<button disabled>
+			Previous page
+		</button>
+	{{/rkeyset}}
+
+	{{#keyset}}
+		<a
+			class="button"
+			href="/{{board}}?keyset={{keyset}}"
+		>
+			Next page
+		</a>
+	{{/keyset}}
+	{{^keyset}}
+		<button disabled>
+			Next page
+		</button>
+	{{/keyset}}
+</div>
